@@ -28,7 +28,7 @@ pkg=vyatta-debian-pam-configs-config
 
 case "$1" in
     purge|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
-	for file in atd cron login sshd; do
+	for file in atd cron login sshd passwd; do
 	    if [ -L /etc/pam.d/${file} ]; then
 		rm -f /etc/pam.d/${file}
 	    fi

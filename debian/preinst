@@ -23,7 +23,7 @@ pkg=vyatta-debian-pam-configs-config
 
 case "$1" in
     install|upgrade)
-	for file in atd cron login sshd; do
+	for file in atd cron login sshd passwd; do
 	    if ! [ -e /etc/pam.d/${file}.debian ]; then
 	    	dpkg-divert --package ${pkg} --add --rename \
 			--divert /etc/pam.d/${file}.debian /etc/pam.d/${file}

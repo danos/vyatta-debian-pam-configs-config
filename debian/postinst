@@ -31,11 +31,9 @@ case "$1" in
 	# for password
 	sed -i --follow-symlinks 's/requisite[ \t][ \t]*pam_securetty.so/required pam_securetty.so/' $rootfsdir/etc/pam.d/login
 
-	# Only allow root to use passwd command
-	if ! grep -q 'pam_succeed_if.so' /etc/pam.d/passwd ; then
-	    sed -i -e '/^@include/i \
-password	requisite pam_succeed_if.so user = root
-' /etc/pam.d/passwd
+	# Allow non-root users to use passwd command
+	if grep -q 'pam_succeed_if.so' /etc/pam.d/passwd ; then
+	    sed -i -e '/pam_succeed_if.so/d' /etc/pam.d/passwd
 	fi
     ;;
 
