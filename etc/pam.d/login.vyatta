@@ -106,11 +106,7 @@ session	required	pam_loginuid.so
 # Standard Un*x account and session
 @include common-account
 @include common-session
-
-# Password renewal
-password    requisite    pam_pwquality.so retry=3
-# Change password via vyatta configd
-password    requisite    pam_vyatta_passwd.so use_authtok
+@include common-password
 
 # SELinux needs to intervene at login time to ensure that the process
 # starts in the proper default security context. Only sessions which are
