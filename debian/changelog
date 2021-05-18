@@ -1,3 +1,11 @@
+vyatta-debian-pam-configs-config (1.9) unstable; urgency=medium
+
+  [ Sharmila Podury ]
+  * Fix lintian error
+  * Unable to renew password when expired
+
+ -- Daniel Gollub <dgollub@att.com>  Tue, 18 May 2021 17:38:29 +0200
+
 vyatta-debian-pam-configs-config (1.8) unstable; urgency=medium
 
   * Import DANOS
